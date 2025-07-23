@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: notification-system
+
+app:
+  email:
+    resend:
+      api-key: ${RESEND_API_KEY}
+    from-address: ${SENDER_EMAIL_ADDRESS:info@bankapp.mackiewicz.info}
+
