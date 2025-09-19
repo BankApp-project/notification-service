@@ -1,10 +1,19 @@
+server:
+  port: 8081
 spring:
   application:
     name: notification-system
+  flyway:
+    enabled:
+  docker:
+    compose:
+      enabled: false
+  rabbitmq:
+    username: guest
+    password: guest
 
 app:
   email:
     resend:
       api-key: ${RESEND_API_KEY}
     from-address: ${SENDER_EMAIL_ADDRESS:info@bankapp.mackiewicz.info}
-
