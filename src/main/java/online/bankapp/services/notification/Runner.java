@@ -2,7 +2,7 @@ package online.bankapp.services.notification;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import online.bankapp.services.notification.config.PubSubConfig;
+import online.bankapp.services.notification.config.WelcomeMessagePubSubConfig;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -29,7 +29,7 @@ public class Runner implements CommandLineRunner {
         String routingKey = "user.created." + userUUID;
 
         rabbitTemplate.convertAndSend(
-                PubSubConfig.TOPIC_EXCHANGE_NAME,
+                WelcomeMessagePubSubConfig.TOPIC_EXCHANGE_NAME,
                 routingKey,
                 EMAIL_TO_SEND_TEST_MSG
         );
