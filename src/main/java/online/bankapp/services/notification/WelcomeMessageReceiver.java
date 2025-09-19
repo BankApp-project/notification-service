@@ -6,7 +6,7 @@ import online.bankapp.services.notification.email.EmailService;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component()
+@Component
 @RequiredArgsConstructor
 public class WelcomeMessageReceiver {
 

@@ -31,7 +31,13 @@
 		<spring-cloud.version>2025.0.0</spring-cloud.version>
 	</properties>
 	<dependencies>
-		<dependency>
+        <dependency>
+            <groupId>bankapp</groupId>
+            <artifactId>bankapp-payloads</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>

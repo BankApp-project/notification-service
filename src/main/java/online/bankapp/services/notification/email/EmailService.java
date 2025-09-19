@@ -1,5 +1,6 @@
 package online.bankapp.services.notification.email;
 
+import bankapp.payload.notification.email.otp.EmailNotificationPayload;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import online.bankapp.services.notification.email.exception.EmailSendingException;
@@ -36,5 +37,13 @@ public class EmailService {
     private String getUsernameFromEmail(String email) {
         int indexOfAt = email.indexOf("@");
         return email.substring(0, indexOfAt);
+    }
+
+    public void send(EmailNotificationPayload payload) {
+        emailSender.send(
+                payload.recipientEmail(),
+                payload.subject(),
+                payload.htmlBody()
+        );
     }
 }
