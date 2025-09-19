@@ -17,6 +17,7 @@ public class PubSubConfig {
     public static final String queueName = "notification-queue";
 
     private static final String ROUTING_KEY = "user.created.#";
+
     @Bean
     Queue queue() {
         return new Queue(queueName, true);
@@ -34,7 +35,7 @@ public class PubSubConfig {
 
     @Bean
     MessageListenerAdapter WelcomeMessageListenerAdapter(Receiver receiver) {
-        return new MessageListenerAdapter(receiver, "receiveMessage");
+        return new MessageListenerAdapter(receiver, "receiveWelcomeMessage");
     }
 
     @Bean

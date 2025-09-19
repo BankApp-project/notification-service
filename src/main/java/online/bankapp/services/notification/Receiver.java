@@ -12,7 +12,7 @@ public class Receiver {
 
     private final EmailService emailService;
 
-    public void receiveMessage(String email) {
+    public void receiveWelcomeMessage(String email) {
         log.info("Msg received! Sending email to: {}", email);
        emailService.sendWelcomeEmail(email);
     }
