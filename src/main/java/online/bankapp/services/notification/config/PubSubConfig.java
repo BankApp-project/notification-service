@@ -13,19 +13,19 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class PubSubConfig {
-    public static final String topicExchangeName = "bankapp-exchange";
-    public static final String queueName = "notification-queue";
+    public static final String TOPIC_EXCHANGE_NAME = "bankapp-exchange";
+    public static final String QUEUE_NAME = "notification-queue";
 
     private static final String ROUTING_KEY = "user.created.#";
 
     @Bean
     Queue queue() {
-        return new Queue(queueName, true);
+        return new Queue(QUEUE_NAME, true);
     }
 
     @Bean
     TopicExchange exchange() {
-        return new TopicExchange(topicExchangeName);
+        return new TopicExchange(TOPIC_EXCHANGE_NAME);
     }
 
     @Bean
@@ -43,7 +43,7 @@ public class PubSubConfig {
                                              MessageListenerAdapter listenerAdapter) {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
-        container.setQueueNames(queueName);
+        container.setQueueNames(QUEUE_NAME);
         container.setMessageListener(listenerAdapter);
         return  container;
     }

@@ -29,7 +29,7 @@ public class Runner implements CommandLineRunner {
         String routingKey = "user.created." + userUUID;
 
         rabbitTemplate.convertAndSend(
-                PubSubConfig.topicExchangeName,
+                PubSubConfig.TOPIC_EXCHANGE_NAME,
                 routingKey,
                 EMAIL_TO_SEND_TEST_MSG
         );
