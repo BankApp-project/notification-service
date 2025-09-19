@@ -17,3 +17,6 @@ app:
     resend:
       api-key: ${RESEND_API_KEY}
     from-address: ${SENDER_EMAIL_ADDRESS:info@bankapp.mackiewicz.info}
+logging:
+  level:
+    bankapp: DEBUG

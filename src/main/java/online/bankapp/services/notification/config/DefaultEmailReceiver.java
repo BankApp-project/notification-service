@@ -14,7 +14,7 @@ public class DefaultEmailReceiver {
     private final EmailService emailService;
 
     public void receive(EmailNotificationPayload payload) {
-        log.info("Msg received! Sending email to: {}", payload.recipientEmail());
+        log.debug("Msg received! Sending email to: {}", payload.recipientEmail());
         emailService.send(payload);
     }
 
