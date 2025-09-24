@@ -1,5 +1,6 @@
 package online.bankapp.services.notification.config;
 
+import online.bankapp.services.notification.DefaultEmailReceiver;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;

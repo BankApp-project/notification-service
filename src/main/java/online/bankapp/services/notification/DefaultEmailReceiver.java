@@ -1,4 +1,4 @@
-package online.bankapp.services.notification.config;
+package online.bankapp.services.notification;
 
 import bankapp.payload.notification.email.otp.EmailNotificationPayload;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class DefaultEmailReceiver {
     private final EmailService emailService;
 
     public void receive(EmailNotificationPayload payload) {
-        log.debug("Msg received! Sending email to: {}", payload.recipientEmail());
+        log.info("Msg received! Sending email to: {}", payload.recipientEmail());
         emailService.send(payload);
     }
 
