@@ -17,11 +17,17 @@ import org.springframework.context.annotation.Configuration;
 public class EmailOtpPubSubConfig {
 
     public static final String TOPIC_EXCHANGE_NAME = "notifications.commands.v1.exchange";
-    public static final String QUEUE_NAME = "email-otp-queue";
+    public static final String QUEUE_NAME = "notification-service.otp.email";
     public static final String ROUTING_KEY = "send.otp.email";
 
     private final Queue QUEUE = new Queue(QUEUE_NAME, true);
     private final TopicExchange TOPIC_EXCHANGE = new TopicExchange(TOPIC_EXCHANGE_NAME);
+
+    // this bean has to be created, to auto-create queue @broker
+    @Bean(name = "otpEmailQueue")
+    Queue emailOtpQueue() {
+        return QUEUE;
+    }
 
     @Bean
     Binding emailOtpBinding() {

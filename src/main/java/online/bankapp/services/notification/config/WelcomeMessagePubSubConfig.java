@@ -22,8 +22,20 @@ public class WelcomeMessagePubSubConfig {
     private final Queue WELCOME_EMAIL_QUEUE = new Queue(QUEUE_NAME, true);
     private final TopicExchange WELCOME_EMAIL_TOPIC_EXCHANGE = new TopicExchange(TOPIC_EXCHANGE_NAME);
 
+    // this bean has to be created, to auto-create exchange @broker
+    @Bean("welcomeMessageTopicExchange")
+    TopicExchange welcomeMessageTopicExchange() {
+        return WELCOME_EMAIL_TOPIC_EXCHANGE;
+    }
+
+    // this bean has to be created, to auto-create queue @broker
+    @Bean(name = "welcomeMessageQueue")
+    Queue welcomeMessageQueue() {
+        return WELCOME_EMAIL_QUEUE;
+    }
+
     @Bean
-    Binding userCreatedBinding() {
+    Binding welcomeMessageBinding() {
         return BindingBuilder.bind(WELCOME_EMAIL_QUEUE).to(WELCOME_EMAIL_TOPIC_EXCHANGE).with(ROUTING_KEY);
     }
 
